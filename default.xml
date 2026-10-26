@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+    <remote name="aosp" fetch="https://android.googlesource.com/" />
+    <remote name="samsung" fetch="ssh://git@github.com/samsung-mediatek/" />
+    <default remote="aosp" sync-j="4" />
+
+    <project path="build/kernel" name="kernel-build" remote="samsung" revision="sec-android15-6.6" upstream="sec-android15-6.6" dest-branch="sec-android15-6.6">
+        <linkfile src="kleaf/bazel.sh" dest="tools/bazel" />
+        <linkfile src="_setup_env.sh" dest="build/_setup_env.sh" />
+        <linkfile src="abi" dest="build/abi" />
+        <linkfile src="build_utils.sh" dest="build/build_utils.sh" />
+        <linkfile src="multi-switcher.sh" dest="build/multi-switcher.sh" />
+        <linkfile src="static_analysis" dest="build/static_analysis" />
+    </project>
+    <project path="build/bazel_mgk_rules" name="kernel-build-bazel_mgk_rules" remote="samsung" revision="sec-android15-6.6" upstream="sec-android15-6.6" dest-branch="sec-android15-6.6">
+        <linkfile src="kleaf/bazel.WORKSPACE" dest="WORKSPACE" />
+    </project>
+    <project path="kernel-6.6" name="android_kernel_6.6" remote="samsung" revision="sec-android15-6.6" upstream="sec-android15-6.6" dest-branch="sec-android15-6.6">
+    </project>
+    <project path="kernel_device_modules-6.6" name="android_kernel_device_modules-6.6" remote="samsung" revision="sec-android15-6.6" upstream="sec-android15-6.6" dest-branch="sec-android15-6.6">
+        <linkfile src="scripts/legacy_build.sh" dest="build/build.sh" />
+    </project>
+    <project path="vendor/mediatek/kernel_modules" name="vendor_mediatek_kernel_modules" remote="samsung" revision="sec-android15-6.6" upstream="sec-android15-6.6" dest-branch="sec-android15-6.6">
+    </project>
+
+    <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" revision="9530bee133971f25758a2e1085755200999ca1bf" upstream="main-kernel-build-2024" />
+    <project path="configs" name="kernel/configs" revision="d2f11841b106d40f0621f2cfe876dc957c4447e1" upstream="main" />
+    <project path="tests" name="kernel/tests" revision="7a2ca80a50303636d0004233a9013578d7d812f9" upstream="main" />
+    <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" revision="62dc563017359bca29c4a08f5f27d8ecae763462" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" revision="739d8a41b6096d384338a62995a04739aff8693d" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/clang-tools" name="platform/prebuilts/clang-tools" revision="1634c6a556d1f2c24897bf74156c6449486e8941" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" revision="bfa65e7422cc88dc64ef3ca224daf214a77fb4d5" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" revision="b46264b70e3cdf70d08c9ae2df6ea3002b242ebc" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/rust" name="platform/prebuilts/rust" revision="442511af884f074018466f85b4daadd4b0ac0050" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" revision="f5c284e8998dd8a085cf027bb518b6c2b84cf744" upstream="main-kernel-build-2024" />
+    <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" revision="c6c90521b7c317f13d41bbd9336a8d45ee202cec" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="prebuilts/ndk-r26" name="toolchain/prebuilts/ndk/r26" revision="abad5cbde7eb9684e37d7569810743a8a34826af" upstream="main-kernel-build-2024" clone-depth="1" />
+    <project path="external/libcap-ng" name="platform/external/libcap-ng" revision="2bcc92ae19481dd2b8d3ce3abdfbbee49261abe6" upstream="main-kernel-build-2024" />
+    <project path="external/libcap" name="platform/external/libcap" revision="8729338c078737da57a8b63ee88016799dfb4cdb" upstream="main-kernel-build-2024" />
+    <project path="external/bazel-skylib" name="platform/external/bazel-skylib" revision="6b103c40d8113f001475d5e13672922ef2aa0e5a" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-bazel-central-registry" name="platform/external/bazelbuild-bazel-central-registry" revision="7018452ffac4fc070b29d5c5c872bac3c746a06a" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-platforms" name="platform/external/bazelbuild-platforms" revision="04d937168075c80205c96f31752000e9de759adb" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-apple_support" name="platform/external/bazelbuild-apple_support" revision="f6003e1e3763f8aad9fb9acae79cfa5fff9ae988" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_cc" name="platform/external/bazelbuild-rules_cc" revision="5d626dcf48e0e97933b48456a86966971799c9e9" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_java" name="platform/external/bazelbuild-rules_java" revision="8e548c7053dffd1717d565f0409a88992f401da1" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_license" name="platform/external/bazelbuild-rules_license" revision="f578df4fd057ffe2023728444759535685631548" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_pkg" name="platform/external/bazelbuild-rules_pkg" revision="f91631bcb97956f7bdf4cdf7523d5d2e63f85b5c" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_python" name="platform/external/bazelbuild-rules_python" revision="f71847ac898655b67634bb14e77a7408c4fb5e00" upstream="main-kernel-build-2024" />
+    <project path="external/python/absl-py" name="platform/external/python/absl-py" revision="9ae5a78fc57c3cd539398373ae39601a8b923e62" upstream="main-kernel-build-2024" />
+    <project path="external/lz4" name="platform/external/lz4" revision="124599333514066524f55f5f41fbf0d46212e598" upstream="main-kernel-build-2024" />
+    <project path="external/pigz" name="platform/external/pigz" revision="9bc9fa17d499ddde88b77820f6d063e16c0cdd42" upstream="main-kernel-build-2024" />
+    <project path="external/toybox" name="platform/external/toybox" revision="91f90361fc563025e6d152d68d2072109500d602" upstream="main-kernel-build-2024" />
+    <project path="external/zlib" name="platform/external/zlib" revision="b34cd2e4371556e913ad9801a924a891c74d1463" upstream="main-kernel-build-2024" />
+    <project path="external/zopfli" name="platform/external/zopfli" revision="36c79f00e5229800d2aaa13fc42c301ec8ef1153" upstream="main-kernel-build-2024" />
+    <project path="external/bazelbuild-rules_rust" name="platform/external/bazelbuild-rules_rust" revision="d6f2d8a992b17f431cad9f66431c97d7dc8db46a" upstream="main-kernel" />
+    <project path="external/stardoc" name="platform/external/stardoc" revision="f31250f9f5b03834d9964aaee7a3794c1d73d4a2" upstream="main-kernel-build-2024" />
+    <project path="build/configs" name="android_kernel_manifest" remote="samsung" revision="S96901AA1" upstream="S96901AA1" dest-branch="S96901AA1">
+        <copyfile src="build_kernel.sh" dest="build_kernel.sh" />
+        <copyfile src="README.md" dest="README.md" />
+    </project>
+</manifest>

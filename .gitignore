@@ -1,0 +1,6 @@
+# Only manifest repository files belong in the root Git repository.
+/*
+!/.gitignore
+!/default.xml
+!/README.md
+!/build_kernel.sh
