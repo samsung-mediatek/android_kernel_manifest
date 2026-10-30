@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+if [ ! -x "${PWD}/prebuilts/kernel-build-tools/linux-x86/bin/dtc" ]; then
+    echo "Missing prebuilt dtc; run from the synced workspace root." >&2
+    exit 1
+fi
+export PATH="${PWD}/prebuilts/kernel-build-tools/linux-x86/bin:${PATH}"
+
 export DEVICE_MODULES_DIR=kernel_device_modules-6.6
 export PROJECT=mgk_64_k66
 export MODE="${MODE:-user}"
